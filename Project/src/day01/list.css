@@ -1,0 +1,11 @@
+ul.list{
+    
+background-color: red;
+text-shadow: 3em;
+}
+ul.list>li{
+    line-height: 3em;
+    height: 3em;
+    padding: 0 1em;
+    border-bottom: 1px solid blue;
+}
