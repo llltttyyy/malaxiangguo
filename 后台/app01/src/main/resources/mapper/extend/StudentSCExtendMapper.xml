@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.apps.app01.mapper.extend.StudentSCExtendMapper">
+  <select id="selectAll" resultMap="studentExtendResultMap">
+    select * from c_student_course;
+  </select>
+  <resultMap id="studentExtendResultMap"
+             extends="com.briup.apps.app01.mapper.StudentMapper.BaseResultMap"
+             type="com.briup.apps.app01.bean.extend.StudentSCExtend">
+  <!--由于继承了BaseResult，所以不用映射id、name...-->
+    <association
+            property="student"
+            column="student_id"
+            select="com.briup.apps.app01.mapper.UserMapper.selectByPrimaryKey"
+    ></association>
+    <association
+            property="course"
+            column="course_id"
+            select="com.briup.apps.app01.mapper.CourseMapper.selectByPrimaryKey"
+    ></association>
+  </resultMap>
+
+</mapper>
